@@ -1,11 +1,11 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 	"os"
 	"path/filepath"
-	"encoding/json"
 
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/clientcmd"
@@ -30,7 +30,7 @@ func main() {
 
 	fmt.Printf("There are %d volumes in the cluster\n", len(volumes.Items))
 
-	for indx, entry := range(volumes.Items) {
+	for indx, entry := range volumes.Items {
 		s, _ := json.MarshalIndent(entry.Spec.Capacity, "", "\t")
 		fmt.Printf("Volume[%d]:\n%s\n", indx, string(s))
 	}
