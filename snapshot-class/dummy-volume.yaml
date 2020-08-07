@@ -1,0 +1,11 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: podpvc-1
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: singlewriter-standard
+  resources:
+    requests:
+      storage: 1Gi
