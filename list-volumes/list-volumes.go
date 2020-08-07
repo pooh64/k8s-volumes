@@ -1,7 +1,7 @@
 package main
 
 import (
-	"encoding/json"
+	//"encoding/json"
 	"flag"
 	"fmt"
 	"os"
@@ -28,11 +28,12 @@ func main() {
 		panic(err.Error())
 	}
 
-	fmt.Printf("There are %d volumes in the cluster\n", len(volumes.Items))
+	fmt.Printf("There are %d PersistentVolumes in the cluster\n", len(volumes.Items))
 
 	for indx, entry := range volumes.Items {
-		s, _ := json.MarshalIndent(entry.Spec.Capacity, "", "\t")
-		fmt.Printf("Volume[%d]:\n%s\n", indx, string(s))
+		//s, _ := json.MarshalIndent(entry, "", "\t")
+		//fmt.Printf("Volume[%d]:\n%s\n", indx, string(s))
+		fmt.Printf("Volume[%d]: %s %s\n", indx, entry.Spec.ClaimRef.Name, entry.Name)
 	}
 }
 
