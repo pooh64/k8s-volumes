@@ -6,3 +6,4 @@
 !*.sh
 !*.gitignore
 !*.yaml
+!*.c

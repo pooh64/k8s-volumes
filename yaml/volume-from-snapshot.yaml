@@ -1,0 +1,16 @@
+# pvc-demo.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-2
+spec:
+  dataSource:
+    name: snap-pvc-5
+    kind: VolumeSnapshot
+    apiGroup: snapshot.storage.k8s.io
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: singlewriter-standard
+  resources:
+    requests:
+      storage: 30Gi
